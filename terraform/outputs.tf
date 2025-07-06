@@ -1,7 +1,7 @@
 output "bucket_name" {
-  value = aws_s3_bucket.portfolio.id
+  value = aws_s3_bucket.site_bucket.bucket
 }
 
-output "cloudfront_domain" {
+output "cloudfront_url" {
   value = aws_cloudfront_distribution.cdn.domain_name
 }

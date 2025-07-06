@@ -1,10 +1,6 @@
-data "aws_route53_zone" "main" {
-  name = "maianagra.com."
-}
-
-resource "aws_route53_record" "root" {
+resource "aws_route53_record" "site" {
   zone_id = data.aws_route53_zone.main.zone_id
-  name    = "maianagra.com"
+  name    = var.domain_name
   type    = "A"
 
   alias {
