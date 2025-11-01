@@ -18,9 +18,7 @@ const Chat: React.FC = () => {
     try {
       const res = await fetch(chatbot_url, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input }),
       });
 
@@ -37,22 +35,33 @@ const Chat: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Maia Chatbot</h1>
+    <div className="bg-background text-text p-8 rounded-2xl max-w-2xl mx-auto shadow-md">
+      <h1 className="font-playfair text-3xl font-semibold text-primary italic mb-6 text-center">
+        Maia Chatbot
+      </h1>
+
       <textarea
         rows={3}
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Ask me about Maia..."
+        className="w-full p-3 rounded-lg bg-surface text-text border border-accent focus:outline-none focus:ring-2 focus:ring-primary placeholder:text-accent"
       />
-      <br />
-      <button onClick={sendMessage} disabled={loading}>
+
+      <button
+        onClick={sendMessage}
+        disabled={loading}
+        className="mt-4 px-6 py-2 rounded-lg text-background bg-primary hover:bg-primary-light disabled:opacity-60 transition-all duration-300"
+      >
         {loading ? "Sending..." : "Send"}
       </button>
-      <div style={{ marginTop: "1rem", whiteSpace: "pre-wrap" }}>
-        <strong>Response:</strong>
-        <p>{response}</p>
-      </div>
+
+      {response && (
+        <div className="mt-6 bg-surface p-4 rounded-lg border border-accent">
+          <strong className="text-primary block mb-2">Response:</strong>
+          <p className="whitespace-pre-wrap">{response}</p>
+        </div>
+      )}
     </div>
   );
 };
