@@ -1,7 +1,7 @@
 import Header from "./components/common/layout/Header";
 import Navigation from "./components/common/layout/Navigation";
 import { useEffect, useRef, useState } from "react";
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
