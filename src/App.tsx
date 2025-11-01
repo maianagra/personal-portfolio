@@ -54,13 +54,12 @@ function App() {
         </div>
       </div>
 
-      <main className={`p-4 text-text ${isSticky ? "pt-15" : ""}`}>
+      <main className={`p-4 text-text ${isSticky ? "pt-[60px]" : ""}`}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-        <Outlet />
       </main>
     </div>
   );
